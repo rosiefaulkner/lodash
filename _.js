@@ -32,10 +32,35 @@ const _ = {
         return words;
     },
 
-    pad() {
-
+    pad(string, length) {
+        if(length <= string.length){
+            return string;
+        }
+        let space = ' ';
+        let startPaddingLength = Math.floor((length - string.length)/2);
+        let endPaddingLength = (length - string.length) - startPaddingLength;
+        let paddedString = space.repeat(startPaddingLength) + string + space.repeat(endPaddingLength);
+        return paddedString;
     },
 };
+
+
+
+const word = string => {
+    let wordString = string.split('');
+    let isPalindrome = true;
+    
+    for (let i = 0; i < wordString.length; i++){
+        if (wordString[i] !== wordString[wordString.length - i]){
+            isPalindrome = false;
+        }
+    }
+
+    return isPalindrome;
+}
+
+
+
 
 
 // Do not write or modify code below this line.
