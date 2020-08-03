@@ -10,7 +10,7 @@ const _ = {
        if(typeof end == 'undefined'){
             end = start;
             start = 0;
-       }
+        }
        //console.log(start + '/' + end);
        if(start > end){
             let temp = end;
@@ -21,13 +21,18 @@ const _ = {
         let isInRange = null;
         if(number >= start && number < end){
             isInRange = true;
-        }else {
+        } else {
             isInRange = false;
         }
         return isInRange;
     }, 
 
-    words() {
+    words(string) {
+        let words = string.split(' ');
+        return words;
+    },
+
+    pad() {
 
     },
 };
