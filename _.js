@@ -46,18 +46,7 @@ const _ = {
 
 
 
-const word = string => {
-    let wordString = string.split('');
-    let isPalindrome = true;
-    
-    for (let i = 0; i < wordString.length; i++){
-        if (wordString[i] !== wordString[wordString.length - i]){
-            isPalindrome = false;
-        }
-    }
 
-    return isPalindrome;
-}
 
 
 
