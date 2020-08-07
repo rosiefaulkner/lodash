@@ -42,6 +42,53 @@ const _ = {
         let paddedString = space.repeat(startPaddingLength) + string + space.repeat(endPaddingLength);
         return paddedString;
     },
+
+    has(object, key) {
+        if (key in object){
+            hasValue = true;
+            return hasValue; 
+        } 
+        else{
+            hasValue = false;
+            return hasValue; 
+        };
+    },
+
+    invert(object) {
+        let invertedObject = {};
+        for (var key in object) {
+            if(object.hasOwnProperty(key)){
+                invertedObject[object[key]] = key;
+            }
+          }
+        return invertedObject;
+    },
+
+    findKey(object, predicate) {
+        for(var key in object) {
+            let value = object[key];
+            let predicateReturnValue = predicate[value];
+            if(object.hasOwnProperty(key)){
+                if (object[key]){
+                    return key;
+                }
+            }
+        }
+        return undefined;
+    },
+
+    drop(array, n) {
+        if(!n) {
+            n = 1;
+        }
+        let droppedArray = array.slice(n);
+        return droppedArray;
+    },
+
+    dropWhile(array, predicate) {
+        const dropNumber = array.findIndex(element => element = true);
+
+    },
 };
 
 
