@@ -67,12 +67,10 @@ const _ = {
     findKey(object, predicate) {
         for(var key in object) {
             let value = object[key];
-            let predicateReturnValue = predicate[value];
-            if(object.hasOwnProperty(key)){
-                if (object[key]){
+            let predicateReturnValue = predicate(value);
+                if (predicateReturnValue){
                     return key;
                 }
-            }
         }
         return undefined;
     },
@@ -86,9 +84,24 @@ const _ = {
     },
 
     dropWhile(array, predicate) {
-        const dropNumber = array.findIndex(element => element = true);
-
+        let dropNumber = array.findIndex(function(element, index) {
+            return !(predicate(element, index, array));
+        });
+        let droppedArray = this.drop(array, dropNumber);
+        return droppedArray;
     },
+
+    chunk(array, size) {
+        if(!size) {
+            size = 1;
+        }
+        let arrayChunks = [];
+        for(let i = 0; i < array.length; i+= size){
+            let arrayChunk = array.slice(i, i + size);
+            arrayChunks.push(arrayChunk);
+        }
+        return arrayChunks;
+    }
 };
 
 
